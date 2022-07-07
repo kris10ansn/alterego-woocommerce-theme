@@ -34,6 +34,7 @@
 	}
 
 	$background_color = get_custom_field( 'background_color', "product_cat_${category_id}" );
+	$thumbnail_id     = get_term_meta( $category_id, 'thumbnail_id', true );
 	?>
 
     <header style="background-color: <?= $background_color ?>">
@@ -52,6 +53,6 @@
         </nav><!-- #site-navigation -->
 
         <div class="feature-image">
-			<?= wp_get_attachment_image( 43, 'full' ); ?>
+			<?= wp_get_attachment_image( $thumbnail_id, 'full' ); ?>
         </div>
     </header><!-- #masthead -->
