@@ -67,7 +67,7 @@ div#page {
       flex-direction: column;
       justify-content: space-between;
 
-      a {
+      a.logo {
         text-decoration: none;
 
         img {
@@ -79,11 +79,43 @@ div#page {
         list-style: none;
         padding: 0;
 
-        a {
-          text-decoration: none;
-          color: white;
-          font-size: 32px;
-          line-height: 1.375;
+        @at-root body.archive &:not(:hover) li {
+          opacity: 0.25;
+
+          &.current-menu-item {
+            opacity: 1;
+          }
+        }
+
+        &:hover li {
+          opacity: 0.25;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &:focus-within li {
+          opacity: 0.25 !important;
+
+          &:focus, &:focus-within {
+            opacity: 1 !important;
+          }
+        }
+
+
+        li.menu-item {
+          transition: opacity .1s ease;
+
+          a {
+            font-size: 32px;
+            line-height: 1.375;
+            color: white;
+            text-decoration: none;
+
+            display: block;
+            width: 100%;
+          }
         }
       }
     }
@@ -114,7 +146,7 @@ div#page {
 
     .marquee {
       padding: 32px;
-      animation: marquee-animation 1s linear infinite;
+      animation: marquee-animation 1.75s linear infinite;
     }
   }
 

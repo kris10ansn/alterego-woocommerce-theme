@@ -417,21 +417,45 @@ div#page header nav {
   flex-direction: column;
   justify-content: space-between;
 }
-div#page header nav a {
+div#page header nav a.logo {
   text-decoration: none;
 }
-div#page header nav a img {
+div#page header nav a.logo img {
   width: 330px;
 }
 div#page header nav ul {
   list-style: none;
   padding: 0;
 }
-div#page header nav ul a {
-  text-decoration: none;
-  color: white;
+body.archive div#page header nav ul:not(:hover) li {
+  opacity: 0.25;
+}
+body.archive div#page header nav ul:not(:hover) li.current-menu-item {
+  opacity: 1;
+}
+
+div#page header nav ul:hover li {
+  opacity: 0.25;
+}
+div#page header nav ul:hover li:hover {
+  opacity: 1;
+}
+div#page header nav ul:focus-within li {
+  opacity: 0.25 !important;
+}
+div#page header nav ul:focus-within li:focus, div#page header nav ul:focus-within li:focus-within {
+  opacity: 1 !important;
+}
+div#page header nav ul li.menu-item {
+  transition: opacity 0.1s ease;
+}
+div#page header nav ul li.menu-item a {
   font-size: 32px;
   line-height: 1.375;
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
 }
 div#page header div.feature-image img {
   height: auto;
@@ -455,7 +479,7 @@ div#page .marquee-container {
 }
 div#page .marquee-container .marquee {
   padding: 32px;
-  animation: marquee-animation 1s linear infinite;
+  animation: marquee-animation 1.75s linear infinite;
 }
 div#page ul.products {
   display: grid;
