@@ -59,7 +59,6 @@ div#page {
   header {
     display: flex;
     flex-direction: row;
-    background-color: #ff760f;
     justify-content: space-between;
 
     nav {
@@ -93,6 +92,52 @@ div#page {
       height: auto;
       width: auto;
       max-height: 100vh;
+    }
+  }
+
+  ul.products {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    li.product {
+      position: relative;
+
+      img {
+        width: 100%;
+        height: auto;
+        margin: auto;
+      }
+
+      div.product-info {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: 0.35s;
+
+        color: white;
+        padding: 0 32px 24px 32px;
+
+        h2 {
+          margin: 0;
+          font-size: 24px;
+          line-height: 1;
+          font-family: "lunchtype24expanded_medium", sans-serif;
+        }
+
+        .amount {
+          font-size: 20px;
+        }
+      }
+
+      &:hover div.product-info {
+        opacity: 1;
+      }
+
     }
   }
 }

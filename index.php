@@ -28,13 +28,15 @@ $query = new WP_Query( [
 
 ?>
     <main id="primary">
-	    <?php
-        while ($query->have_posts()) {
-            $query->the_post();
-            wc_get_template_part('content', 'product');
-        }
-        wp_reset_postdata();
-        ?>
+        <ul class="products">
+			<?php
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				wc_get_template_part( 'content', 'product' );
+			}
+			wp_reset_postdata();
+			?>
+        </ul>
     </main>
 <?php
 get_footer();

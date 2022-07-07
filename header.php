@@ -25,7 +25,18 @@
 <div id="page">
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'alterego' ); ?></a>
 
-    <header>
+	<?php
+	const CATEGORY_HOME = 29;
+	$category_id = get_queried_object()->term_id;
+
+	if ( $category_id === null ) {
+		$category_id = CATEGORY_HOME;
+	}
+
+	$background_color = get_custom_field( 'background_color', "product_cat_${category_id}" );
+	?>
+
+    <header style="background-color: <?= $background_color ?>">
         <nav>
             <a href="<?= get_site_url(); ?>">
                 <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">

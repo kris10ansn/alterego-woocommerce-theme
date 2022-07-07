@@ -409,7 +409,6 @@ img {
 div#page header {
   display: flex;
   flex-direction: row;
-  background-color: #ff760f;
   justify-content: space-between;
 }
 div#page header nav {
@@ -438,6 +437,43 @@ div#page header div.feature-image img {
   height: auto;
   width: auto;
   max-height: 100vh;
+}
+div#page ul.products {
+  display: grid;
+  list-style: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+div#page ul.products li.product {
+  position: relative;
+}
+div#page ul.products li.product img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+div#page ul.products li.product div.product-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.35s;
+  color: white;
+  padding: 0 32px 24px 32px;
+}
+div#page ul.products li.product div.product-info h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1;
+  font-family: "lunchtype24expanded_medium", sans-serif;
+}
+div#page ul.products li.product div.product-info .amount {
+  font-size: 20px;
+}
+div#page ul.products li.product:hover div.product-info {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
