@@ -196,14 +196,6 @@ if ( function_exists( "acf_add_local_field_group" ) ) {
 	) );
 }
 
-function get_custom_field( $selector, $post_id = false, $format_value = true ) {
-	if ( function_exists( "get_field" ) ) {
-		return get_field( $selector, $post_id, $format_value );
-	}
-
-	return "[ACF NOT INSTALLED]";
-}
-
 /**
  * Implement the Custom Header feature.
  */
