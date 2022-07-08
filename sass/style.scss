@@ -34,6 +34,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------- */
 @import "utilities/accessibility";
 
+@import "_marquee.scss";
+@import "_header.scss";
 
 h1,
 h2,
@@ -56,101 +58,6 @@ img {
 }
 
 div#page {
-  header#site-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 100vh;
-
-    nav {
-      margin: 32px 0 48px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      a.logo {
-        text-decoration: none;
-
-        img {
-          width: 330px;
-        }
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        @at-root body.archive &:not(:hover) li {
-          opacity: 0.25;
-
-          &.current-menu-item {
-            opacity: 1;
-          }
-        }
-
-        &:hover li {
-          opacity: 0.25;
-
-          &:hover {
-            opacity: 1;
-          }
-        }
-
-        &:focus-within li {
-          opacity: 0.25 !important;
-
-          &:focus, &:focus-within {
-            opacity: 1 !important;
-          }
-        }
-
-
-        li.menu-item {
-          transition: opacity .1s ease;
-
-          a {
-            font-size: 32px;
-            line-height: 1.375;
-            color: white;
-            text-decoration: none;
-
-            display: block;
-            width: 100%;
-          }
-        }
-      }
-    }
-
-    div.feature-image img {
-      height: auto;
-      width: auto;
-      max-height: 100vh;
-    }
-  }
-
-  .marquee-container {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: row;
-
-    @keyframes marquee-animation {
-      from {
-        transform: translateX(0%);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
-
-    .marquee {
-      padding: 32px;
-      animation: marquee-animation 1.75s linear infinite;
-    }
-  }
-
 
   ul.products {
     display: grid;
@@ -197,4 +104,5 @@ div#page {
 
     }
   }
+
 }

@@ -1,0 +1,23 @@
+
+.marquee-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+
+  @keyframes marquee-animation {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .marquee {
+    padding: 32px;
+    animation: marquee-animation 1.75s linear infinite;
+  }
+}
