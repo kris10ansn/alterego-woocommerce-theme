@@ -235,14 +235,18 @@ function get_custom_field( $selector, $post_id = false, $format_value = true ) {
 }
 
 function get_category_id( $fallback = null ) {
-	return get_queried_object()->term_id;
-}
+	$id = get_queried_object()->term_id;
 
-function get_category_thumbnail( $category_id = null ) {
-	if ( $category_id === null ) {
-		$category_id = get_category_id();
+	if ( $id ) {
+		return $id;
 	}
 
+	$fallback_category = get_term_by( 'slug', $fallback, 'product_cat' );
+
+	return $fallback_category->term_id;
+}
+
+function get_category_thumbnail( $category_id ) {
 	return get_term_meta( $category_id, 'thumbnail_id', true );
 }
 
