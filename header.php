@@ -31,6 +31,22 @@
 	?>
 
     <header id="site-header" style="background-color: <?= $background_color ?>">
-		<?php get_template_part( 'template-parts/category-navigation' ); ?>
-		<?php get_template_part( 'template-parts/category-featured-image' ); ?>
+
+        <a href="<?= get_site_url(); ?>" id="logo">
+            <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">
+        </a>
+
+        <div class="content">
+			<?php
+			get_template_part( 'template-parts/category-navigation' );
+
+			if ( is_home() or is_product_category() ) {
+				get_template_part( 'template-parts/category-featured-image' );
+			} else if ( is_product() ) {
+				// TODO: Show product
+			} else {
+				// TODO
+			}
+			?>
+        </div>
     </header>
