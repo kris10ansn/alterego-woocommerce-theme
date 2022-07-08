@@ -152,6 +152,12 @@ function alterego_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'alterego_scripts' );
 
+function remove_theme_supports() {
+	remove_theme_support( 'wc-product-gallery-zoom' );
+}
+
+add_action( 'wp', 'remove_theme_supports', 100 );
+
 if ( function_exists( "acf_add_local_field_group" ) ) {
 	acf_add_local_field_group( array(
 		"key"            => "background_color",
