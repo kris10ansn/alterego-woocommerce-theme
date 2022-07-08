@@ -225,3 +225,27 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_p
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 add_filter( 'single_product_archive_thumbnail_size', fn() => 'full' );
+
+function get_custom_field( $selector, $post_id = false, $format_value = true ) {
+	if ( function_exists( "get_field" ) ) {
+		return get_field( $selector, $post_id, $format_value );
+	}
+
+	return "[ACF NOT INSTALLED]";
+}
+
+function get_category_id( $fallback = null ) {
+	return get_queried_object()->term_id;
+}
+
+function get_category_thumbnail( $category_id = null ) {
+	if ( $category_id === null ) {
+		$category_id = get_category_id();
+	}
+
+	return get_term_meta( $category_id, 'thumbnail_id', true );
+}
+
+function get_category_custom_field( $selector, $category_id ) {
+	return get_custom_field( $selector, "product_cat_${category_id}" );
+}
