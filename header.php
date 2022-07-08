@@ -50,9 +50,9 @@
 				)
 			);
 			?>
-        </nav><!-- #site-navigation -->
+        </nav>
 
         <div class="feature-image">
 			<?= wp_get_attachment_image( $thumbnail_id, 'full' ); ?>
         </div>
-    </header><!-- #masthead -->
+    </header>
