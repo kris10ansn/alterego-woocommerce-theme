@@ -37,7 +37,7 @@
 	$thumbnail_id     = get_term_meta( $category_id, 'thumbnail_id', true );
 	?>
 
-    <header style="background-color: <?= $background_color ?>">
+    <header id="site-header" style="background-color: <?= $background_color ?>">
         <nav>
             <a href="<?= get_site_url(); ?>" class="logo">
                 <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">
