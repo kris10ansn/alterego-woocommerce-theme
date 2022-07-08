@@ -26,33 +26,11 @@
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'alterego' ); ?></a>
 
 	<?php
-	const CATEGORY_HOME = 29;
-	$category_id = get_queried_object()->term_id;
-
-	if ( $category_id === null ) {
-		$category_id = CATEGORY_HOME;
-	}
-
-	$background_color = get_custom_field( 'background_color', "product_cat_${category_id}" );
-	$thumbnail_id     = get_term_meta( $category_id, 'thumbnail_id', true );
+	$category_id      = get_category_id( 'home' );
+	$background_color = get_category_custom_field( 'background_color', $category_id );
 	?>
 
     <header id="site-header" style="background-color: <?= $background_color ?>">
-        <nav>
-            <a href="<?= get_site_url(); ?>" class="logo">
-                <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">
-            </a>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-        </nav>
-
-        <div class="feature-image">
-			<?= wp_get_attachment_image( $thumbnail_id, 'full' ); ?>
-        </div>
+		<?php get_template_part( 'template-parts/category-navigation' ); ?>
+		<?php get_template_part( 'template-parts/category-featured-image' ); ?>
     </header>
