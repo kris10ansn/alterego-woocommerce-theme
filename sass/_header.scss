@@ -1,73 +1,41 @@
 header#site-header {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  background-color: var(--header-background-color);
+
+  &.full-page {
+    height: 100vh;
+  }
 
   a#logo {
     text-decoration: none;
-    position: absolute;
-    top: 32px;
-    left: 64px;
+    display: block;
+    padding: 32px 64px;
 
     img {
       width: 330px;
     }
   }
 
+
+  &.category a#logo {
+    position: absolute;
+    padding: 0;
+    top: 32px;
+    left: 64px;
+  }
+
+
   div.content {
+    height: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    nav {
-      margin: 32px 0 48px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        @at-root body.archive &:not(:hover) li {
-          opacity: 0.25;
-
-          &.current-menu-item {
-            opacity: 1;
-          }
-        }
-
-        &:hover li {
-          opacity: 0.25;
-
-          &:hover {
-            opacity: 1;
-          }
-        }
-
-        &:focus-within li {
-          opacity: 0.25 !important;
-
-          &:focus, &:focus-within {
-            opacity: 1 !important;
-          }
-        }
-
-
-        li.menu-item {
-          transition: opacity .1s ease;
-
-          a {
-            font-size: 32px;
-            line-height: 1.375;
-            color: white;
-            text-decoration: none;
-
-            display: block;
-            width: 100%;
-          }
-        }
-      }
-    }
+    @import "_header-navigation.scss";
+    @import "_header-product.scss";
 
     div.feature-image img {
       height: auto;

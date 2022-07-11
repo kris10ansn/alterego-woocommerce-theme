@@ -1,0 +1,23 @@
+
+div.product {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: white;
+
+  margin-bottom: 48px;
+
+  font-family: "lunchtype24regular", sans-serif;
+
+  h1.entry-title {
+    font-family: "lunchtype24expanded_medium", sans-serif;
+  }
+
+  div.entry-summary {
+    max-width: 390px;
+    padding-left: 64px;
+  }
+}

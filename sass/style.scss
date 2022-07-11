@@ -35,7 +35,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "utilities/accessibility";
 
 @import "_marquee.scss";
-@import "_header.scss";
 
 h1,
 h2,
@@ -57,7 +56,16 @@ img {
   display: block;
 }
 
+body.woocommerce-cart main#primary {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
 div#page {
+  @import "_header.scss";
+  @import "_footer.scss";
+
+  --header-background-color: #fbbb28;
 
   ul.products {
     display: grid;
@@ -93,8 +101,14 @@ div#page {
           font-family: "lunchtype24expanded_medium", sans-serif;
         }
 
-        .amount {
-          font-size: 20px;
+        .price {
+          ins {
+            text-decoration: none;
+          }
+
+          .amount {
+            font-size: 20px;
+          }
         }
       }
 

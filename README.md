@@ -1,4 +1,7 @@
 # Alter ego WordPress theme
 
-WordPress theme made following WordPress course on SuperHi.com, but with my spin on it.
-The result is the same, but some code is different.
+WordPress theme made following WordPress course on SuperHi.com.
+The most important part for me was the back-end, so the front-end
+may not be that polished.
+
+**This repo was made for personal convenience so commit messages may not be that good.**

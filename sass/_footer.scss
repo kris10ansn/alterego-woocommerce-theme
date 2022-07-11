@@ -1,0 +1,40 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 1rem 64px;
+
+  font-family: "lunchtype22regular", sans-serif;
+
+  ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 16px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      margin: 0 1em;
+
+      a {
+        display: block;
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+
+}

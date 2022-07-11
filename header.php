@@ -26,11 +26,39 @@
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'alterego' ); ?></a>
 
 	<?php
-	$category_id      = get_category_id( 'home' );
-	$background_color = get_category_custom_field( 'background_color', $category_id );
+	if ( is_product() ) {
+		/**
+		 * Hook: woocommerce_before_single_product.
+		 *
+		 * @hooked woocommerce_output_all_notices - 10
+		 */
+		do_action( 'woocommerce_before_single_product' );
+
+		the_post();
+	}
+
+	$background_color = null;
+
+	if ( is_home() or is_product_category() ) {
+		$background_color = get_category_custom_field( 'background_color', get_category_id( 'home' ) );
+	}
+	if ( is_product() ) {
+		$background_color = get_custom_field( 'background_color' );
+	}
 	?>
 
-    <header id="site-header" style="background-color: <?= $background_color ?>">
+    <header
+            id="site-header"
+            style="background-color: <?= $background_color ?>"
+            class="<?php
+			if ( is_home() or is_product_category() or is_product() ) {
+				echo "full-page ";
+			}
+			if ( is_home() or is_product_category() ) {
+				echo "category ";
+			}
+			?>"
+    >
 
         <a href="<?= get_site_url(); ?>" id="logo">
             <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">
@@ -38,14 +66,16 @@
 
         <div class="content">
 			<?php
-			get_template_part( 'template-parts/category-navigation' );
+			if ( is_home() or is_product_category() or is_product() ) {
+				get_template_part( 'template-parts/category-navigation' );
+			}
 
 			if ( is_home() or is_product_category() ) {
 				get_template_part( 'template-parts/category-featured-image' );
-			} else if ( is_product() ) {
-				// TODO: Show product
-			} else {
-				// TODO
+			}
+
+			if ( is_product() ) {
+				wc_get_template_part( 'content', 'single-product' );
 			}
 			?>
         </div>
