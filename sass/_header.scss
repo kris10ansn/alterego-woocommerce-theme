@@ -8,22 +8,38 @@ header#site-header {
     height: 100vh;
   }
 
-  a#logo {
-    text-decoration: none;
-    display: block;
-    padding: 32px 64px;
+  div#top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-    img {
-      width: 330px;
+    padding: 32px 64px;
+    width: 100%;
+
+    a#logo {
+      text-decoration: none;
+      display: block;
+
+      img {
+        width: 330px;
+      }
+    }
+
+    div.links {
+      display: flex;
+      flex-direction: row;
+
+      a {
+        margin-left: 25px;
+      }
     }
   }
 
-
-  &.category a#logo {
+  &.category div#top-bar {
     position: absolute;
-    padding: 0;
-    top: 32px;
-    left: 64px;
+    top: 0;
+    left: 0;
   }
 
 

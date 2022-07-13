@@ -444,19 +444,32 @@ div#page header#site-header {
 div#page header#site-header.full-page {
   height: 100vh;
 }
-div#page header#site-header a#logo {
+div#page header#site-header div#top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 64px;
+  width: 100%;
+}
+div#page header#site-header div#top-bar a#logo {
   text-decoration: none;
   display: block;
-  padding: 32px 64px;
 }
-div#page header#site-header a#logo img {
+div#page header#site-header div#top-bar a#logo img {
   width: 330px;
 }
-div#page header#site-header.category a#logo {
+div#page header#site-header div#top-bar div.links {
+  display: flex;
+  flex-direction: row;
+}
+div#page header#site-header div#top-bar div.links a {
+  margin-left: 25px;
+}
+div#page header#site-header.category div#top-bar {
   position: absolute;
-  padding: 0;
-  top: 32px;
-  left: 64px;
+  top: 0;
+  left: 0;
 }
 div#page header#site-header div.content {
   height: 100%;

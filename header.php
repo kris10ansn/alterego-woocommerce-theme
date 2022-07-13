@@ -60,9 +60,20 @@
 			?>"
     >
 
-        <a href="<?= get_site_url(); ?>" id="logo">
-            <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">
-        </a>
+        <div id="top-bar">
+            <a href="<?= get_site_url(); ?>" id="logo">
+                <img src="<?= get_template_directory_uri(); ?>/assets/alter-ego-logo.svg" alt="Alter ego">
+            </a>
+
+            <div class="links">
+                <a href="<?= get_search_link() ?>">
+                    <img src="<?= get_template_directory_uri() . "/assets/icon-search.svg"; ?>" alt="search">
+                </a>
+                <a href="<?= wc_get_cart_url() ?>">
+                    <img src="<?= get_template_directory_uri() . "/assets/icon-cart.svg"; ?>" alt="cart">
+                </a>
+            </div>
+        </div>
 
         <div class="content">
 			<?php
